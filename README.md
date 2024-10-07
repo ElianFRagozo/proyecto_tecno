@@ -75,7 +75,7 @@ Este proyecto incluye un **Servicio de Perfil** y un **Servicio de Autenticació
 
 2. **Acceder a la API**:
 
-   La API estará disponible en `http://localhost:4001` para el Servicio de Perfil y `http://localhost:4002` para el Servicio de Autenticación (si es que has configurado un puerto diferente para el servicio de autenticación). Puedes utilizar herramientas como Postman o cURL para interactuar con la API.
+   La API estará disponible en `http://localhost:4001` para el Servicio de Perfil y `http://localhost:4000` para el Servicio de Autenticación (si es que has configurado un puerto diferente para el servicio de autenticación). Puedes utilizar herramientas como Postman o cURL para interactuar con la API.
 
 ## Migraciones
 
