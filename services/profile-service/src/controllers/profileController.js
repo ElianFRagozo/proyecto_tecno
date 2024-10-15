@@ -13,10 +13,10 @@ const createProfile = async (req, res) => {
       moneda_deseada,
       rango_salarial_min,
       rango_salarial_max,
-      estudios,  // Ya objetos JSON
-      experiencia,  // Ya objetos JSON
-      habilidades,  // Ya objetos JSON
-      idiomas  // Ya objetos JSON
+      estudios,  
+      experiencia,  
+      habilidades,  
+      idiomas 
     } = req.body;
     let estudiosParsed, experienciaParsed, idiomasParsed, habilidadParsed;
 
