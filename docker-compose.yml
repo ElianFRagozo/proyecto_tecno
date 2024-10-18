@@ -1,0 +1,35 @@
+services:
+  auth-service:
+    build: ./services/auth-service  # Ruta al Dockerfile del servicio de autenticación
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgres://postgres:12345@db:5432/profileservice
+    depends_on:
+      - db
+    volumes:
+      - ./auth-service:/usr/src/app
+
+  profile-service:
+    build: ./services/profile-service  # Ruta al Dockerfile del servicio de perfil
+    ports:
+      - "4001:4001"
+    environment:
+      - DATABASE_URL=postgres://postgres:12345@db:5432/profileservice
+    depends_on:
+      - db
+    volumes:
+      - ./profile-service:/usr/src/app
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: profileservice
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

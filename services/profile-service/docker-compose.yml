@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   app:
@@ -6,7 +5,7 @@ services:
     ports:
       - "4001:4001"
     environment:
-      - DATABASE_URL=postgres://postgres:12345@db:5432/postgres
+      - DATABASE_URL=postgres://aprecot:12345@db:5432/profileservice
     depends_on:
       - db
     volumes:
@@ -15,12 +14,12 @@ services:
     command: sh -c "npx sequelize-cli db:migrate && npm start"  # Cambiar aquí
 
   db:
-    image: postgres:15
+    image: postgres:16
     restart: always
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: aprecot
       POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: postgres
+      POSTGRES_DB: profileservice
     volumes:
       - pgdata:/var/lib/postgresql/data
 

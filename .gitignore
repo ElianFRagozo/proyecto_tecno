@@ -9,8 +9,7 @@ yarn.lock
 dist/
 build/
 
-# Environment variables
-.env
+
 
 # Logs
 logs/

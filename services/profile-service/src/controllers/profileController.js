@@ -1,6 +1,7 @@
 const { sequelize } = require('../config/db'); // Importar la conexión a la base de datos
 const { Usuarios, Estudios, ExperienciaLaboral, HabilidadesBlandas, Idiomas } = require('../models');
 
+
 // Crear perfil
 const createProfile = async (req, res) => {
   const transaction = await sequelize.transaction();
@@ -92,7 +93,7 @@ const getProfile = async (req, res) => {
     const userId = req.params.id;
 
     // Obtener el usuario y todas las relaciones
-    const user = await Usuarios.findByPk(userId, {
+    const user = await Usuarios.findByPkUsuariosUsuarios(userId, {
       include: [
         { model: Estudios }, // Relación con estudios
         { model: ExperienciaLaboral }, // Relación con experiencia laboral
