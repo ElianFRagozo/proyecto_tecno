@@ -16,5 +16,11 @@ COPY . .
 # Exponer el puerto en el que tu aplicación escuchará
 EXPOSE 4000
 
+# Añade esto para descargar wait-for-it
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it
+
+RUN chmod +x /usr/local/bin/wait-for-it
+
+
 # Comando para iniciar la aplicación y ejecutar migraciones
 CMD ["sh", "-c", "npx sequelize-cli db:migrate && npm start"]

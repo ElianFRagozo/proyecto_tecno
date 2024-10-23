@@ -16,5 +16,11 @@ COPY . .
 # Expose the port your application will listen on
 EXPOSE 4001
 
+# Añade esto para descargar wait-for-it
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it
+
+RUN chmod +x /usr/local/bin/wait-for-it
+
+
 # Command to start the application
 CMD ["npm", "start"]

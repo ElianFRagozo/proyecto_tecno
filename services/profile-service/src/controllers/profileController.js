@@ -93,7 +93,7 @@ const getProfile = async (req, res) => {
     const userId = req.params.id;
 
     // Obtener el usuario y todas las relaciones
-    const user = await Usuarios.findByPkUsuariosUsuarios(userId, {
+    const user = await Usuarios.findByPk(userId, {
       include: [
         { model: Estudios }, // Relación con estudios
         { model: ExperienciaLaboral }, // Relación con experiencia laboral
@@ -105,6 +105,13 @@ const getProfile = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
+
+    const response = {
+      ...user.toJSON(),
+      experiencia: user.ExperienciaLaborals || [],
+      habilidades: user.HabilidadBlandas || [],
+      idiomas: user.Idiomas || [],
+    };
 
     res.status(200).json(user); // Devolver todos los atributos del usuario y las relaciones
   } catch (error) {
