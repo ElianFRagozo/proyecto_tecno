@@ -1,5 +1,6 @@
 const { sequelize } = require('../config/db'); // Importar la conexión a la base de datos
 const { Usuarios, Estudios, ExperienciaLaboral, HabilidadesBlandas, Idiomas } = require('../models');
+const moment = require('moment');
 
 // Crear perfil
 const createProfile = async (req, res) => {
@@ -62,10 +63,19 @@ const createProfile = async (req, res) => {
     })), { transaction });
 
     await ExperienciaLaboral.bulkCreate(experienciaParsed.map(exp => ({
-      user_id: userId,
-      funciones_responsabilidades: exp.funciones_responsabilidades,
-      logros: exp.logros
-    })), { transaction });
+        user_id: userId,
+        nombre_empresa: exp.nombre_empresa,
+        cargo: exp.cargo,
+        fecha_inicio: exp.fecha_inicio,
+        otro_cargo: exp.otro_cargo || null,
+        fecha_fin: exp.fecha_fin || null,
+        actualmente: exp.actualmente || false,
+        funciones_responsabilidades: exp.funciones_responsabilidades || null,
+        logros: exp.logros || null
+      })),
+      { transaction }
+    );
+    
 
     await HabilidadesBlandas.bulkCreate(habilidadParsed.map(habilidad => ({
       user_id: userId,
@@ -100,6 +110,12 @@ const getProfile = async (req, res) => {
         { model: Idiomas } // Relación con idiomas
       ]
     });
+
+experienciaParsed.forEach(exp => {
+  if (!moment(exp.fecha_inicio, 'YYYY-MM-DD', true).isValid()) {
+    throw new Error(`La fecha de inicio ${exp.fecha_inicio} no es válida para la experiencia con la empresa ${exp.nombre_empresa}.`);
+  }
+});
 
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado" });

@@ -15,6 +15,31 @@ const ExperienciaLaboral = sequelize.define('ExperienciaLaboral', {
         },
         allowNull: false
     },
+    nombre_empresa: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      cargo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      otro_cargo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      fecha_inicio: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      fecha_fin: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      actualmente: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
     funciones_responsabilidades: {
         type: DataTypes.TEXT,
         allowNull: true

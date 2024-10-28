@@ -80,6 +80,26 @@ const router = express.Router();
  *                 items:
  *                   type: object
  *                   properties:
+ *                     nombre_empresa:
+ *                       type: string
+ *                       description: Nombre de la empresa
+ *                     cargo:
+ *                       type: string
+ *                       description: Cargo desempeñado
+ *                     otro_cargo:
+ *                       type: string
+ *                       description: Otro cargo no listado (opcional)
+ *                     fecha_inicio:
+ *                       type: string
+ *                       format: date
+ *                       description: Fecha de inicio del cargo (formato YYYY-MM-DD)
+ *                     fecha_fin:
+ *                       type: string
+ *                       format: date
+ *                       description: Fecha de finalización del cargo (opcional, formato YYYY-MM-DD)
+ *                     actualmente:
+ *                       type: boolean
+ *                       description: Indica si el usuario sigue en el cargo actualmente
  *                     funciones_responsabilidades:
  *                       type: string
  *                       description: Funciones y responsabilidades
@@ -181,16 +201,37 @@ router.post(
  *                         type: integer
  *                       titulo_obtenido:
  *                         type: string
- *                 experiencia:
- *                   type: array
- *                   description: Lista de experiencia laboral del usuario
- *                   items:
- *                     type: object
- *                     properties:
- *                       funciones_responsabilidades:
- *                         type: string
- *                       logros:
- *                         type: string
+ *               experiencia:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     nombre_empresa:
+ *                       type: string
+ *                       description: Nombre de la empresa
+ *                     cargo:
+ *                       type: string
+ *                       description: Cargo desempeñado
+ *                     otro_cargo:
+ *                       type: string
+ *                       description: Otro cargo no listado (opcional)
+ *                     fecha_inicio:
+ *                       type: string
+ *                       format: date
+ *                       description: Fecha de inicio del cargo (formato YYYY-MM-DD)
+ *                     fecha_fin:
+ *                       type: string
+ *                       format: date
+ *                       description: Fecha de finalización del cargo (opcional, formato YYYY-MM-DD)
+ *                     actualmente:
+ *                       type: boolean
+ *                       description: Indica si el usuario sigue en el cargo actualmente
+ *                     funciones_responsabilidades:
+ *                       type: string
+ *                       description: Funciones y responsabilidades
+ *                     logros:
+ *                       type: string
+ *                       description: Logros obtenidos
  *                 habilidades:
  *                   type: array
  *                   description: Lista de habilidades del usuario
