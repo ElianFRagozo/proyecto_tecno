@@ -1,47 +1,23 @@
-{
-<<<<<<< HEAD
-    "development": {
-      "username": "postgres",
+   {
+   "development": {
+      "username": "aprecot",
       "password": "12345",
-      "database": "postgres",
+      "database": "profileservice",
       "host": "localhost",
       "dialect": "postgres"
     },
     "test": {
-      "username": "postgres",
+      "username": "aprecot",
       "password": "12345",
-      "database": "postgres",
+      "database": "profileservice",
       "host": "localhost",
       "dialect": "postgres"
     },
     "production": {
-      "username": "postgres",
+      "username": "aprecot",
       "password": "12345",
-      "database": "postgres",
+      "database": "profileservice",
       "host": "localhost",
       "dialect": "postgres"
     }
-=======
-  "development": {
-    "username": "aprecot",
-    "password": "12345",
-    "database": "profileservice",
-    "host": "db",
-    "dialect": "postgres"
-  },
-  "test": {
-    "username": "aprecot",
-    "password": "12345",
-    "database": "profileservice",
-    "host": "db",
-    "dialect": "postgres"
-  },
-  "production": {
-    "username": "aprecot",
-    "password": "12345",
-    "database": "profileservice",
-    "host": "db",
-    "dialect": "postgres"
->>>>>>> 160eb30cf8f14d867b49fcbbe8da27923b24cbb6
   }
-}
