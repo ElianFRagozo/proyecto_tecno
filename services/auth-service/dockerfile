@@ -1,0 +1,26 @@
+# Usar la imagen de Node.js como base
+FROM node:20
+
+# Crear un directorio de trabajo
+WORKDIR /usr/src/app
+
+# Copiar package.json y package-lock.json
+COPY package*.json ./
+
+# Instalar las dependencias
+RUN npm install
+
+# Copiar el resto de la aplicación
+COPY . .
+
+# Exponer el puerto en el que tu aplicación escuchará
+EXPOSE 4000
+
+# Añade esto para descargar wait-for-it
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it
+
+RUN chmod +x /usr/local/bin/wait-for-it
+
+
+# Comando para iniciar la aplicación y ejecutar migraciones
+CMD ["sh", "-c", "npx sequelize-cli db:migrate && npm start"]

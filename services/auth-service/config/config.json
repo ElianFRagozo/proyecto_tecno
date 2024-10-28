@@ -1,0 +1,24 @@
+{
+    "development": {
+      "username": "aprecot",
+      "password": "12345",
+      "database": "profileservice",
+      "host": "db",
+      "dialect": "postgres"
+    },
+    "test": {
+      "username": "aprecot",
+      "password": "12345",
+      "database": "profileservice",
+      "host": "db",
+      "dialect": "postgres"
+    },
+    "production": {
+      "username": "aprecot",
+      "password": "12345",
+      "database": "profileservice",
+      "host": "db",
+      "dialect": "postgres"
+    }
+  }
+  

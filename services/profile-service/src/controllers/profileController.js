@@ -2,6 +2,7 @@ const { sequelize } = require('../config/db'); // Importar la conexión a la bas
 const { Usuarios, Estudios, ExperienciaLaboral, HabilidadesBlandas, Idiomas } = require('../models');
 const moment = require('moment');
 
+
 // Crear perfil
 const createProfile = async (req, res) => {
   const transaction = await sequelize.transaction();
@@ -76,7 +77,6 @@ const createProfile = async (req, res) => {
       { transaction }
     );
     
-
     await HabilidadesBlandas.bulkCreate(habilidadParsed.map(habilidad => ({
       user_id: userId,
       habilidad: habilidad.habilidad
@@ -120,6 +120,13 @@ experienciaParsed.forEach(exp => {
     if (!user) {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
+
+    const response = {
+      ...user.toJSON(),
+      experiencia: user.ExperienciaLaborals || [],
+      habilidades: user.HabilidadBlandas || [],
+      idiomas: user.Idiomas || [],
+    };
 
     res.status(200).json(user); // Devolver todos los atributos del usuario y las relaciones
   } catch (error) {

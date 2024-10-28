@@ -24,6 +24,12 @@ const Usuarios = sequelize.define('Usuarios', {
     allowNull: false,
     unique: true,
   },
+  foto: {
+    type: DataTypes.BLOB,
+  },
+  hoja_de_vida: {
+    type: DataTypes.BLOB,
+  },
   localizacion: {
     type: DataTypes.STRING,
   },

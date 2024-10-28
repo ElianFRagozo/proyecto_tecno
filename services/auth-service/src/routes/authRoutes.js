@@ -22,8 +22,8 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             required:
- *               - userType
- *               - documentoIdentidad
+ *               - user_type
+ *               - documento_identidad
  *               - correo
  *               - contraseña
  *               - confirmarContraseña
